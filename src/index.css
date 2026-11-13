@@ -1,0 +1,414 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   BLACK + DARK PURPLE PREMIUM THEME
+========================================= */
+
+:root {
+  --midnight: #050505;
+  --midnight-soft: #100A19;
+  --navy-card: #100D18;
+  --navy-card-light: #191224;
+
+  --cyan: #00E5FF;
+  --cyan-light: #67EEFF;
+  --blue: #246BFD;
+  --violet: #A855F7;
+  --orange: #FF8A4C;
+
+  --white: #F4F7FF;
+  --text: #D5DEEF;
+  --muted: #94A3B8;
+
+  --border: rgba(168, 85, 247, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  background: #050505;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #050505;
+  color: var(--white);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+  background: #050505;
+}
+
+.portfolio-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: #050505;
+  color: var(--white);
+}
+
+.portfolio-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+/* =========================================
+   BACKGROUND COLOUR
+========================================= */
+
+.animated-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(125deg,
+      #050505 0%,
+      #0B0711 32%,
+      #100A19 58%,
+      #1B1028 82%,
+      #050505 100%);
+}
+
+.background-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 12% 18%,
+      rgba(88, 40, 140, 0.13),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 88% 25%,
+      rgba(120, 55, 170, 0.12),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(70, 35, 100, 0.09),
+      transparent 48%
+    );
+}
+
+.aurora {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.25;
+  will-change: transform;
+}
+
+.aurora-blue {
+  top: -220px;
+  left: -150px;
+  background: #38205C;
+}
+
+.aurora-violet {
+  top: 15%;
+  right: -250px;
+  background: #7136A0;
+}
+
+.aurora-cyan {
+  bottom: -350px;
+  left: 25%;
+  background: #402052;
+}
+
+.background-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.2) 1px, transparent 1px);
+  background-size: 65px 65px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.background-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #C9A0FF;
+  box-shadow: 0 0 12px #A855F7, 0 0 24px rgba(168, 85, 247, 0.4);
+  will-change: transform, opacity;
+}
+
+/* =========================================
+   SECTION BACKGROUND TRANSPARENCY
+========================================= */
+
+.portfolio-content main > section {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.portfolio-content main > section::before {
+  pointer-events: none;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+header {
+  z-index: 50;
+}
+
+/* =========================================
+   ORIGINAL SECTION SPACING
+========================================= */
+
+.portfolio-shell section:not(#home) {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.portfolio-shell #home {
+  min-height: 88vh;
+}
+
+/* =========================================
+   LINKS AND BUTTONS
+========================================= */
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: #FFFFFF;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6D3A91, #39205C, #A855F7);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C084FC;
+}
+
+/* =========================================
+   COSMIC BACKGROUND LAYERS
+   Existing animations preserved
+========================================= */
+
+.space-base {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(88, 40, 140, 0.13),
+      transparent 46%
+    ),
+    radial-gradient(
+      ellipse at 85% 30%,
+      rgba(120, 55, 170, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #050505 0%,
+      #100A19 48%,
+      #1B1028 78%,
+      #050505 100%
+    );
+}
+
+.nebula {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  filter: blur(115px);
+  opacity: 0.19;
+  will-change: transform;
+}
+
+.nebula-blue {
+  top: -230px;
+  left: -170px;
+  background: #38205C;
+}
+
+.nebula-purple {
+  top: 12%;
+  right: -270px;
+  background: #7136A0;
+}
+
+.nebula-cyan {
+  bottom: -370px;
+  left: 25%;
+  background: #402052;
+  opacity: 0.13;
+}
+
+.star-field {
+  position: absolute;
+  inset: 0;
+}
+
+.cosmic-star {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow:
+    0 0 5px #FFFFFF,
+    0 0 12px #C084FC,
+    0 0 22px rgba(168, 85, 247, 0.4);
+  will-change: opacity, transform;
+}
+
+.cosmic-dust {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 8px #A855F7, 0 0 18px #7136A0;
+  will-change: opacity, transform;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(192, 132, 252, 0.8),
+    #FFFFFF
+  );
+  box-shadow: 0 0 8px #FFFFFF, 0 0 18px #A855F7;
+  transform: rotate(-28deg);
+  will-change: transform, opacity;
+}
+
+.cosmic-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.2) 1px, transparent 1px);
+  background-size: 75px 75px;
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
+}
+
+/* =========================================
+   MOUSE LIGHTING
+========================================= */
+
+.mouse-spotlight {
+  position: absolute;
+  z-index: 3;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.09) 0%,
+    rgba(112, 55, 160, 0.06) 35%,
+    rgba(70, 35, 100, 0.035) 55%,
+    transparent 72%
+  );
+  filter: blur(12px);
+  will-change: left, top;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  .portfolio-shell section:not(#home) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .portfolio-shell #home {
+    min-height: auto;
+  }
+
+  .aurora,
+  .nebula {
+    width: 350px;
+    height: 350px;
+    filter: blur(85px);
+    opacity: 0.16;
+  }
+
+  .background-grid,
+  .cosmic-grid {
+    opacity: 0.025;
+  }
+
+  .mouse-spotlight {
+    display: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animated-background * {
+    animation: none !important;
+  }
+}
